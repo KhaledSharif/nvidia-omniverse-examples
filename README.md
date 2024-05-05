@@ -16,23 +16,21 @@ Once installed, this repository can be used as a python module, `omniisaacgymenv
 To install `omniisaacgymenvs`, first clone this repository:
 
 ```bash
-git clone https://github.com/NVIDIA-Omniverse/OmniIsaacGymEnvs.git
+git clone https://github.com/KhaledSharif/nvidia-omniverse-examples.git
 ```
 
 Once cloned, locate the [python executable in Isaac Sim](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_python.html). By default, this should be `python.sh`. We will refer to this path as `PYTHON_PATH`.
 
-To set a `PYTHON_PATH` variable in the terminal that links to the python executable, we can run a command that resembles the following. Make sure to update the paths to your local path.
+To set a `PYTHON_PATH` variable in the terminal that links to the python executable, we can run a command that resembles the following. Make sure to update the paths to your local path. For Linux: 
 
-```
-For Linux: alias PYTHON_PATH=~/.local/share/ov/pkg/isaac_sim-*/python.sh
-For Windows: doskey PYTHON_PATH=C:\Users\user\AppData\Local\ov\pkg\isaac_sim-*\python.bat $*
-For IsaacSim Docker: alias PYTHON_PATH=/isaac-sim/python.sh
+```bash
+alias PYTHON_PATH=~/.local/share/ov/pkg/isaac_sim-2023.1.1/python.sh
 ```
 
 To run a simple form of PPO from `rl_games`, use the single-threaded training script:
 
 ```bash
-PYTHON_PATH scripts/rlgames_train.py task=Cartpole
+PYTHON_PATH ./omniisaacgymenvs/scripts/rlgames_train.py task=Cartpole
 ```
 
 This script creates an instance of the PPO runner in `rl_games` and automatically launches training and simulation. Once training completes (the total number of iterations have been reached), the script will exit. If running inference with `test=True checkpoint=<path/to/checkpoint>`, the script will run indefinitely until terminated. Note that this script will have limitations on interaction with the UI.
