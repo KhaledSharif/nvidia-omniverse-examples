@@ -27,6 +27,12 @@ To set a `PYTHON_PATH` variable in the terminal that links to the python executa
 alias PYTHON_PATH=~/.local/share/ov/pkg/isaac_sim-2023.1.1/python.sh
 ```
 
+Install the repository and its dependencies:
+
+```bash
+PYTHON_PATH -m pip install -e .
+```
+
 To run a simple form of PPO from `rl_games`, use the single-threaded training script:
 
 ```bash

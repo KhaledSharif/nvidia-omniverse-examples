@@ -35,7 +35,10 @@ import torch
 from omegaconf import DictConfig
 import omniisaacgymenvs
 from omniisaacgymenvs.envs.vec_env_rlgames import VecEnvRLGames
-from omniisaacgymenvs.utils.config_utils.path_utils import retrieve_checkpoint_path, get_experience
+from omniisaacgymenvs.utils.config_utils.path_utils import (
+    retrieve_checkpoint_path,
+    get_experience,
+)
 from omniisaacgymenvs.utils.hydra_cfg.hydra_utils import *
 from omniisaacgymenvs.utils.hydra_cfg.reformat import omegaconf_to_dict, print_dict
 from omniisaacgymenvs.utils.rlgames.rlgames_utils import RLGPUAlgoObserver, RLGPUEnv
@@ -55,13 +58,22 @@ class RLGTrainer:
         self.cfg_dict["task"]["test"] = self.cfg.test
 
         # register the rl-games adapter to use inside the runner
-        vecenv.register("RLGPU", lambda config_name, num_actors, **kwargs: RLGPUEnv(config_name, num_actors, **kwargs))
-        env_configurations.register("rlgpu", {"vecenv_type": "RLGPU", "env_creator": lambda **kwargs: env})
+        vecenv.register(
+            "RLGPU",
+            lambda config_name, num_actors, **kwargs: RLGPUEnv(
+                config_name, num_actors, **kwargs
+            ),
+        )
+        env_configurations.register(
+            "rlgpu", {"vecenv_type": "RLGPU", "env_creator": lambda **kwargs: env}
+        )
 
         self.rlg_config_dict = omegaconf_to_dict(self.cfg.train)
 
     def run(self, module_path, experiment_dir):
-        self.rlg_config_dict["params"]["config"]["train_dir"] = os.path.join(module_path, "runs")
+        self.rlg_config_dict["params"]["config"]["train_dir"] = os.path.join(
+            module_path, "runs"
+        )
 
         # create runner and set the settings
         runner = Runner(RLGPUAlgoObserver())
@@ -74,7 +86,12 @@ class RLGTrainer:
             f.write(OmegaConf.to_yaml(self.cfg))
 
         runner.run(
-            {"train": not self.cfg.test, "play": self.cfg.test, "checkpoint": self.cfg.checkpoint, "sigma": None}
+            {
+                "train": not self.cfg.test,
+                "play": self.cfg.test,
+                "checkpoint": self.cfg.checkpoint,
+                "sigma": None,
+            }
         )
 
 
@@ -91,27 +108,35 @@ def parse_hydra_configs(cfg: DictConfig):
     global_rank = int(os.getenv("RANK", "0"))
     if cfg.multi_gpu:
         cfg.device_id = local_rank
-        cfg.rl_device = f'cuda:{local_rank}'
+        cfg.rl_device = f"cuda:{local_rank}"
     enable_viewport = "enable_cameras" in cfg.task.sim and cfg.task.sim.enable_cameras
 
     # select kit app file
-    experience = get_experience(headless, cfg.enable_livestream, enable_viewport, cfg.enable_recording, cfg.kit_app)
+    experience = get_experience(
+        headless,
+        cfg.enable_livestream,
+        enable_viewport,
+        cfg.enable_recording,
+        cfg.kit_app,
+    )
 
     env = VecEnvRLGames(
         headless=headless,
         sim_device=cfg.device_id,
         enable_livestream=cfg.enable_livestream,
         enable_viewport=enable_viewport or cfg.enable_recording,
-        experience=experience
+        experience=experience,
     )
 
     # parse experiment directory
-    module_path = os.path.abspath(os.path.join(os.path.dirname(omniisaacgymenvs.__file__)))
+    module_path = os.path.abspath(
+        os.path.join(os.path.dirname(omniisaacgymenvs.__file__))
+    )
     experiment_dir = os.path.join(module_path, "runs", cfg.train.params.config.name)
 
     # use gym RecordVideo wrapper for viewport recording
     if cfg.enable_recording:
-        if cfg.recording_dir == '':
+        if cfg.recording_dir == "":
             videos_dir = os.path.join(experiment_dir, "videos")
         else:
             videos_dir = cfg.recording_dir
@@ -119,12 +144,18 @@ def parse_hydra_configs(cfg: DictConfig):
         video_length = cfg.recording_length
         env.is_vector_env = True
         if env.metadata is None:
-            env.metadata = {"render_modes": ["rgb_array"], "render_fps": cfg.recording_fps}
+            env.metadata = {
+                "render_modes": ["rgb_array"],
+                "render_fps": cfg.recording_fps,
+            }
         else:
             env.metadata["render_modes"] = ["rgb_array"]
             env.metadata["render_fps"] = cfg.recording_fps
         env = gym.wrappers.RecordVideo(
-            env, video_folder=videos_dir, step_trigger=video_interval, video_length=video_length
+            env,
+            video_folder=videos_dir,
+            step_trigger=video_interval,
+            video_length=video_length,
         )
 
     # ensure checkpoints can be specified as relative paths
@@ -138,6 +169,7 @@ def parse_hydra_configs(cfg: DictConfig):
 
     # sets seed. if seed is -1 will pick a random one
     from omni.isaac.core.utils.torch.maths import set_seed
+
     cfg.seed = cfg.seed + global_rank if cfg.seed != -1 else cfg.seed
     cfg.seed = set_seed(cfg.seed, torch_deterministic=cfg.torch_deterministic)
     cfg_dict["seed"] = cfg.seed
