@@ -39,7 +39,7 @@ from omni.isaac.core.utils.stage import get_current_stage
 
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
 from omniisaacgymenvs.tasks.cartpole import CartpoleTask
-from omniisaacgymenvs.robots.articulations.cartpole import Cartpole
+from omniisaacgymenvs.robots.cartpole import Cartpole
 
 
 class CartpoleCameraTask(CartpoleTask):

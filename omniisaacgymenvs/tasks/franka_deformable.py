@@ -8,8 +8,8 @@
 #
 
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
-from omniisaacgymenvs.robots.articulations.franka import Franka
-from omniisaacgymenvs.robots.articulations.views.franka_view import FrankaView
+from omniisaacgymenvs.robots.franka import Franka
+from omniisaacgymenvs.robots.views.franka_view import FrankaView
 
 from omni.isaac.core.prims import RigidPrim, RigidPrimView
 from omni.isaac.core.utils.prims import get_prim_at_path

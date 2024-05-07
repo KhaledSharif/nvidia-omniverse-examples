@@ -27,7 +27,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-from omniisaacgymenvs.robots.articulations.ant import Ant
+from omniisaacgymenvs.robots.ant import Ant
 from omniisaacgymenvs.tasks.warp.shared.locomotion import LocomotionTask
 
 from omni.isaac.core.utils.torch.rotations import compute_heading_and_up, compute_rot, quat_conjugate

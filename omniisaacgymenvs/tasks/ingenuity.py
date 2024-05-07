@@ -27,8 +27,8 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-from omniisaacgymenvs.robots.articulations.ingenuity import Ingenuity
-from omniisaacgymenvs.robots.articulations.views.ingenuity_view import IngenuityView
+from omniisaacgymenvs.robots.ingenuity import Ingenuity
+from omniisaacgymenvs.robots.views.ingenuity_view import IngenuityView
 
 from omni.isaac.core.utils.torch.rotations import *
 from omni.isaac.core.objects import DynamicSphere

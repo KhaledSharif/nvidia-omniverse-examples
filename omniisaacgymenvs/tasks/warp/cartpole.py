@@ -27,7 +27,7 @@
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 
-from omniisaacgymenvs.robots.articulations.cartpole import Cartpole
+from omniisaacgymenvs.robots.cartpole import Cartpole
 
 from omni.isaac.core.articulations import ArticulationView
 from omni.isaac.core.utils.prims import get_prim_at_path

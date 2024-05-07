@@ -34,8 +34,8 @@ import torch
 from omni.isaac.core.utils.prims import get_prim_at_path
 from omni.isaac.core.utils.torch import *
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
-from omniisaacgymenvs.robots.articulations.allegro_hand import AllegroHand
-from omniisaacgymenvs.robots.articulations.views.allegro_hand_view import AllegroHandView
+from omniisaacgymenvs.robots.allegro_hand import AllegroHand
+from omniisaacgymenvs.robots.views.allegro_hand_view import AllegroHandView
 from omniisaacgymenvs.tasks.shared.in_hand_manipulation import InHandManipulationTask
 
 

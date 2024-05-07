@@ -34,8 +34,8 @@ import torch
 from omni.isaac.core.utils.prims import get_prim_at_path
 from omni.isaac.core.utils.torch import *
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
-from omniisaacgymenvs.robots.articulations.shadow_hand import ShadowHand
-from omniisaacgymenvs.robots.articulations.views.shadow_hand_view import ShadowHandView
+from omniisaacgymenvs.robots.shadow_hand import ShadowHand
+from omniisaacgymenvs.robots.views.shadow_hand_view import ShadowHandView
 from omniisaacgymenvs.tasks.shared.in_hand_manipulation import InHandManipulationTask
 
 

@@ -44,7 +44,7 @@ from omni.isaac.core.utils.stage import add_reference_to_stage
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
 from omni.physx.scripts import physicsUtils, utils
 
-from omniisaacgymenvs.robots.articulations.views.factory_franka_view import (
+from omniisaacgymenvs.robots.views.factory_franka_view import (
     FactoryFrankaView,
 )
 import omniisaacgymenvs.tasks.factory.factory_control as fc

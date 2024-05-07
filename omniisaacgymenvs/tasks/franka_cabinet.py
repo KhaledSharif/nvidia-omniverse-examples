@@ -19,10 +19,10 @@ from omni.isaac.core.utils.stage import get_current_stage
 from omni.isaac.core.utils.torch.rotations import *
 from omni.isaac.core.utils.torch.transformations import *
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
-from omniisaacgymenvs.robots.articulations.cabinet import Cabinet
-from omniisaacgymenvs.robots.articulations.franka import Franka
-from omniisaacgymenvs.robots.articulations.views.cabinet_view import CabinetView
-from omniisaacgymenvs.robots.articulations.views.franka_view import FrankaView
+from omniisaacgymenvs.robots.cabinet import Cabinet
+from omniisaacgymenvs.robots.franka import Franka
+from omniisaacgymenvs.robots.views.cabinet_view import CabinetView
+from omniisaacgymenvs.robots.views.franka_view import FrankaView
 from pxr import Usd, UsdGeom
 
 

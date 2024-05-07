@@ -28,7 +28,7 @@
 
 
 from omniisaacgymenvs.tasks.warp.shared.locomotion import LocomotionTask
-from omniisaacgymenvs.robots.articulations.humanoid import Humanoid
+from omniisaacgymenvs.robots.humanoid import Humanoid
 
 from omni.isaac.core.articulations import ArticulationView
 from omni.isaac.core.utils.prims import get_prim_at_path

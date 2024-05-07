@@ -37,7 +37,7 @@ from omni.isaac.core.utils.prims import get_prim_at_path
 from omni.isaac.core.utils.stage import get_current_stage
 from omni.isaac.core.utils.torch.maths import *
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
-from omniisaacgymenvs.robots.articulations.balance_bot import BalanceBot
+from omniisaacgymenvs.robots.balance_bot import BalanceBot
 from pxr import PhysxSchema
 
 

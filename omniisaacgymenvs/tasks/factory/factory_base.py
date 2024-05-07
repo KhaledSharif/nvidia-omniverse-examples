@@ -44,7 +44,7 @@ from omni.isaac.core.objects import FixedCuboid
 from omni.isaac.core.utils.prims import get_prim_at_path
 from omni.isaac.core.utils.stage import get_current_stage
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
-from omniisaacgymenvs.robots.articulations.factory_franka import FactoryFranka
+from omniisaacgymenvs.robots.factory_franka import FactoryFranka
 from pxr import PhysxSchema, UsdPhysics
 import omniisaacgymenvs.tasks.factory.factory_control as fc
 from omniisaacgymenvs.tasks.factory.factory_schema_class_base import FactoryABCBase

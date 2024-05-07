@@ -36,7 +36,7 @@ from omni.isaac.core.utils.prims import get_prim_at_path
 from omni.isaac.core.utils.torch.maths import tensor_clamp, torch_rand_float, unscale
 from omni.isaac.core.utils.torch.rotations import compute_heading_and_up, compute_rot, quat_conjugate
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
-from omniisaacgymenvs.robots.articulations.ant import Ant
+from omniisaacgymenvs.robots.ant import Ant
 from omniisaacgymenvs.tasks.shared.locomotion import LocomotionTask
 from pxr import PhysxSchema
 

@@ -34,8 +34,8 @@ from omni.isaac.core.prims import RigidPrimView
 from omni.isaac.core.utils.prims import get_prim_at_path
 from omni.isaac.core.utils.torch.rotations import *
 from omniisaacgymenvs.tasks.base.rl_task import RLTask
-from omniisaacgymenvs.robots.articulations.crazyflie import Crazyflie
-from omniisaacgymenvs.robots.articulations.views.crazyflie_view import CrazyflieView
+from omniisaacgymenvs.robots.crazyflie import Crazyflie
+from omniisaacgymenvs.robots.views.crazyflie_view import CrazyflieView
 
 EPS = 1e-6  # small constant to avoid divisions by 0 and log(0)
 
