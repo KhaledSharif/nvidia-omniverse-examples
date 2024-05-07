@@ -31,8 +31,10 @@ To run a simple form of PPO from `rl_games`, use the single-threaded training sc
 PYTHON_PATH run.py task=Cartpole
 ```
 
-The result is saved to the current working directory in a new directory called `runs`. For example, the saved pytorch checkpoint will be at:
+The result is saved to the current working directory in a new directory called `runs`. 
 
-```
-runs/Cartpole/nn/last_Cartpole_ep_100_rew_491.48883.pth
+You can now evaluate your model by running the same environment in test (inference) mode using the saved model checkpoint.
+
+```bash
+PYTHON_PATH run.py task=Cartpole test=True checkpoint=runs/Cartpole/nn/last_Cartpole_ep_100_rew_491.48883.pth
 ```
