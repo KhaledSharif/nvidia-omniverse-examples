@@ -36,5 +36,5 @@ The result is saved to the current working directory in a new directory called `
 You can now evaluate your model by running the same environment in test (inference) mode using the saved model checkpoint.
 
 ```bash
-PYTHON_PATH run.py task=Cartpole test=True checkpoint=runs/Cartpole/nn/last_Cartpole_ep_100_rew_491.48883.pth
+PYTHON_PATH run.py task=Cartpole test=True checkpoint=runs/Cartpole/nn/Cartpole.pth
 ```
