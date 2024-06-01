@@ -1,4 +1,4 @@
-# nvidia-omniverse-examples
+# omniverse-gym
 Examples of how to use NVIDIA Omniverse Isaac Sim for to solve Reinforcement Learning Games (RL-Games)
 
 ## Installation
@@ -8,7 +8,7 @@ Follow the Isaac Sim [documentation](https://docs.omniverse.nvidia.com/isaacsim/
 To install `omniisaacgymenvs`, first clone this repository:
 
 ```bash
-git clone https://github.com/KhaledSharif/nvidia-omniverse-examples.git
+git clone https://github.com/KhaledSharif/omniverse-gym.git
 ```
 
 Once cloned, locate the [python executable in Isaac Sim](https://docs.omniverse.nvidia.com/isaacsim/latest/installation/install_python.html). By default, this should be `python.sh`. We will refer to this path as `PYTHON_PATH`.
